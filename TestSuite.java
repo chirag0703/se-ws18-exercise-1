@@ -22,7 +22,6 @@ public class TestSuite {
     i.set(99,99,0x123456);
     assert (i.imData[29995] == (byte)0x00);
     assert (i.imData[29996] == (byte)0x00);
-    // the first byte in pixel has index = (99 * 100 + 99) * 3 = 29997
     assert (i.imData[29997] == (byte)0x12);
     assert (i.imData[29998] == (byte)0x34);
     assert (i.imData[29999] == (byte)0x56);

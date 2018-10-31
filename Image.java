@@ -7,7 +7,7 @@ public class Image {
   private int width = 0;
   private int height = 0;
 
-  public Image(int wt, int ht) {
+  public Image(int width, int height) {
     this.width = width;
     this.height = height;
 
@@ -26,7 +26,7 @@ public class Image {
 
   // --- write image data to file as image format P6
   //https://rosettacode.org/wiki/Bitmap/Write_a_PPM_file#P_type
-    public void  write( String filename) throws IOException{
+    public static void  write( String filename) throws IOException{
     BufferedWriter buffer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filename)));
     int rdim = width;
     int cdim = height;
