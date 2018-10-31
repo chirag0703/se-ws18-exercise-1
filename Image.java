@@ -1,24 +1,24 @@
-import java.io.FileOutputStr;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.*;
 
 public class Image {
   public byte[] imData = null ;
-  private int w = 0;
-  private int h = 0;
+  private int width = 0;
+  private int height = 0;
 
   public Image(int wt, int ht) {
-    this.wt = wide;
-    this.ht = high;
+    this.width = width;
+    this.height = height;
 
-    int nOfPix = wide * high;
+    int nOfPix = width * height;
     int nOfBytes = nOfPix * 3 ;
     this.imData = new byte[nOfBytes];
   }
 
   public void set (int x, int y, int val) {
-    if (x > this.wide && y > this.high) return;
-    int positionFirstIndex = (this.wide * y + x) * 3;
+    if (x > this.width && y > this.height) return;
+    int positionFirstIndex = (this.width * y + x) * 3;
     this.imData[positionFirstIndex ] = (byte)(val >> 16);
     this.imData[positionFirstIndex + 1] = (byte)(val >> 8);
     this.imData[positionFirstIndex + 2] = (byte)(val >> 0);
@@ -27,7 +27,7 @@ public class Image {
   // --- write image data to file as image format P6
   //https://rosettacode.org/wiki/Bitmap/Write_a_PPM_file#P_type
     public void  write( String filename) throws IOException{
-    BufferedWriter buffer = new BufferedWriter(new OutputStrWriter(new FileOutputStr(filename)));
+    BufferedWriter buffer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filename)));
     int rdim = width;
     int cdim = height;
     buffer.write("P6");
@@ -36,7 +36,7 @@ public class Image {
     buffer.newLine();
     buffer.write("255");
     buffer.newLine();
-    for(int row=0;row<rdime;row++){
+    for(int row=0;row<rdim;row++){
       for(int column=0;column<cdim;column++){
         buffer.write(String.valueOf(imData));
         if(column < cdim - 1)buffer.write(" ");
