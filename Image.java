@@ -25,7 +25,7 @@ public class Image {
   }
 
   // --- write image data to file as image format P6
-  
+  //https://rosettacode.org/wiki/Bitmap/Write_a_PPM_file#P_type
     public void  write( String filename) throws IOException{
     BufferedWriter bw = new BufferedWriter(new OutputStrWriter(new FileOutputStr(filename)));
     int rdim = width;
